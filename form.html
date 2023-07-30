@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Form Example</title>
+  <script>
+    function appendToConfig() {
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const profession = document.getElementById('profession').value;
+      const experience = document.getElementById('experience').value;
+      const skill1 = document.getElementById('skill1').value;
+      const skill2 = document.getElementById('skill2').value;
+      const skill3 = document.getElementById('skill3').value;
+      const profile = document.getElementById('profile').value;
+      const mobile = document.getElementById('mobile').value;
+      const email = document.getElementById('email').value;
+      const bgclr = document.getElementById('bgclr').value;
+      const txtclr = document.getElementById('txtclr').value;
+      const font = document.getElementById('font').value;
+
+      var data = {
+        "name": name,
+        "age": age,
+        "profession": profession,
+        "experience": experience,
+        "skill1": skill1,
+        "skill2": skill2,
+        "skill3": skill3,
+        "profile": profile,
+        "mobile": mobile,
+        "email": email,
+        "bgclr": bgclr,
+        "txtclr": txtclr,
+        "font": font
+      };
+
+      var json = JSON.stringify(data);
+      var blob = new Blob([json], { type: "application/json" });
+
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "doop.json";
+      a.click();
+    }
+
+    window.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("submitButton").addEventListener("click", appendToConfig);
+    });
+  </script>
+</head>
+<body>
+  <h1>Portfolio generator</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="age">Age:</label>
+    <input type="text" id="age" name="age" required><br>
+
+    <label for="profession">Profession:</label>
+    <input type="text" id="profession" name="profession" required><br>
+
+    <label for="experience">Experience:</label>
+    <input type="text" id="experience" name="experience" required><br>
+
+    <label for="skill1">Skill 1:</label>
+    <input type="text" id="skill1" name="skill1" required><br>
+
+    <label for="skill2">Skill 2:</label>
+    <input type="text" id="skill2" name="skill2" required><br>
+
+    <label for="skill3">Skill 3:</label>
+    <input type="text" id="skill3" name="skill3" required><br>
+
+    <label for="profile">Profile:</label>
+    <input type="text" id="profile" name="profile" required><br>
+
+    <label for="mobile">Mobile:</label>
+    <input type="text" id="mobile" name="mobile" required><br>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" required><br>
+
+    <label for="bgclr">Background Color:</label>
+    <input type="color" id="bgclr" name="bgclr" required><br>
+
+    <label for="txtclr">Text Color:</label>
+    <input type="color" id="txtclr" name="txtclr" required><br>
+
+    <label for="font">Font:</label>
+    <select id="font" name="font" required>
+      <option value="Verdana, sans-serif">Verdana</option>
+      <option value="Times New Roman, serif">Times New Roman</option>
+      <option value="Courier New, monospace">Courier New</option>
+    </select>
+
+    <button type="button" id="submitButton">Submit</button>
+  </form>
+</body>
+</html>
